@@ -1,0 +1,31 @@
+@use "src/sass/abstracts" as *;
+
+.btn {
+  padding: 8px 18px;
+  border-radius: 5px;
+  background: $pink_900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border: 1px solid transparent;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 15px;
+  transition: all 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background: $pink_500;
+  }
+
+  &.outline {
+    background: transparent;
+    border: 1px solid $pink_900;
+    color: $pink_900;
+
+    &:hover {
+      background: $pink_100;
+    }
+  }
+}

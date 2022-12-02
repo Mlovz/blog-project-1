@@ -1,0 +1,45 @@
+@use "src/sass/abstracts" as *;
+
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &-box {
+    max-width: 400px;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-radius: 5px;
+    padding: 30px;
+  }
+
+  &-forgot {
+    margin-top: 8px;
+    display: flex;
+    justify-content: flex-end;
+    a {
+      border-bottom: 1px solid transparent;
+      color: $pink_900;
+
+      &:hover {
+        border-bottom: 1px dashed $pink_900;
+      }
+    }
+  }
+
+  &-link {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+
+    a {
+      margin-left: 8px;
+      color: $pink_900;
+    }
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

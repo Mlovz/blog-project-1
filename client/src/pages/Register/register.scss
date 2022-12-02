@@ -1,0 +1,31 @@
+@use "src/sass/abstracts" as *;
+
+.register {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &-box {
+    max-width: 400px;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-radius: 5px;
+    padding: 30px;
+  }
+
+  &-link {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+
+    a {
+      margin-left: 8px;
+      color: $pink_900;
+    }
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

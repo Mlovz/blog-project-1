@@ -1,0 +1,11 @@
+@use "src/sass/abstracts" as *;
+
+.home {
+  &-cards {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}

@@ -1,0 +1,45 @@
+@use "src/sass/abstracts" as *;
+
+.detail-card {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 5px 5px 0px 0px;
+  > img {
+    width: 100%;
+    height: 418px;
+    object-fit: cover;
+  }
+  .post-card {
+    background: #ffffff;
+    border: none;
+    border-radius: 5px;
+    pointer-events: none;
+    &:hover {
+      border: none;
+      transform: none;
+    }
+  }
+
+  &-footer {
+    padding: 13px 18px;
+    border-top: 1px solid $gray_200;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &-user {
+      display: flex;
+      align-items: center;
+      span {
+        margin-left: 10px;
+        font-weight: 500;
+      }
+    }
+
+    &-icons {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+  }
+}

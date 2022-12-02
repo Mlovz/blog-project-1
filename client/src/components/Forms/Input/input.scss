@@ -1,0 +1,47 @@
+@use "src/sass/abstracts" as *;
+
+.field {
+  position: relative;
+
+  &-label {
+    position: absolute;
+    width: fit-content;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    border-radius: 10px;
+    transition: all 0.2s;
+    pointer-events: none;
+
+    span {
+      color: $pink_900;
+    }
+  }
+
+  &.active {
+    .field-label {
+      top: -2px;
+      font-size: 10px;
+      background: #fff;
+      padding: 0px 10px;
+    }
+  }
+
+  &-input {
+    input {
+      padding: 13px 15px;
+      background: #f5f5f5;
+      border-radius: 5px;
+      width: 100%;
+      border: 1px solid transparent;
+      transition: all 0.3s;
+      &:focus {
+        background: #fff;
+        border: 1px solid $pink_900;
+      }
+    }
+  }
+}
