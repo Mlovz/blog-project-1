@@ -1,4 +1,4 @@
-import { Avatar } from "components";
+import { Avatar, FavoriteBtn } from "components";
 import React from "react";
 import PostCard from "../PostCard/PostCard";
 import "./detail-card.scss";
@@ -6,12 +6,15 @@ import "./detail-card.scss";
 const DetailCard = () => {
   return (
     <div className="detail-card">
+      <FavoriteBtn />
+
       <img
         src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
         alt=""
       />
       <PostCard
         post={{
+          _id: Math.random() * 10,
           title: "npm audit: Broken by Design",
           time: "July 7, 2021",
           content:

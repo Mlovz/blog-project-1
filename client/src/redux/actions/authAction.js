@@ -68,6 +68,7 @@ export const logout = () => async (dispatch) => {
           token: "",
         },
       });
+      localStorage.removeItem("token");
     }
 
     dispatch({ type: ALERT_TYPES.LOADING, payload: { loading: false } });

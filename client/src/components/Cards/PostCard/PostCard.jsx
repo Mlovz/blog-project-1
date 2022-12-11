@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 const PostCard = ({ post, sctollTop }) => {
   const navigate = useNavigate();
 
-  const onCLick = () => {
+  const onCLick = (e) => {
+    console.log(e);
     if (sctollTop) {
       window.scrollTo({
         top: 0,
@@ -23,7 +24,7 @@ const PostCard = ({ post, sctollTop }) => {
       <span className="fs-12">{post.time}</span>
       <p className="fs-16">{post.content}</p>
 
-      <div className="post-card-dots">
+      <div className="post-card-dots" onClick={(e) => e.stopPropagation()}>
         <svg
           className=""
           width="20"
