@@ -1,11 +1,11 @@
 require("dotenv").config();
-const express = require("express");
-const morgan = require("morgan");
-const cookieParser = require("cookie-parser");
-const cors = require("cors");
+import express from "express";
+import morgan from "morgan";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+import mongoose from "mongoose";
+import routes from "./routes";
 const app = express();
-const mongoose = require("mongoose");
-const routes = require("./routes");
 // const SocketServer = require("./socketServer.js");
 
 // const http = require("http").createServer(app);
@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === "development") {
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://belxi.ru",
     credentials: true,
   })
 );
@@ -41,6 +41,7 @@ mongoose.connect(uri, {}, (err) => {
 });
 
 app.use("/api", routes.auth);
+app.use("/api", routes.article);
 
 const PORT = process.env.PORT || 5000;
 

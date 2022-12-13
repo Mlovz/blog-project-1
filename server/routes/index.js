@@ -1,7 +1,9 @@
-const auth = require("./authRoute");
+import auth from "./authRoute";
+import article from "./articleRoute";
 
 const routes = {
   auth,
+  article,
 };
 
-module.exports = routes;
+export default routes;

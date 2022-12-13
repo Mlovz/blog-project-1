@@ -30,10 +30,8 @@ const AddPost = () => {
       title: data.title,
       content: data.content,
       category: select,
-      file: file,
+      file,
     };
-
-    console.log(newData);
   };
 
   return (

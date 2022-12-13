@@ -17,7 +17,7 @@ const Login = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    setUserData({ ...userData, [name]: value });
+    setUserData({ ...userData, [name]: value.toLowerCase() });
   };
 
   const onSubmit = (e) => {

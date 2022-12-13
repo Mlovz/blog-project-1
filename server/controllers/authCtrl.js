@@ -1,6 +1,6 @@
-const Users = require("../models/userModel");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+import Users from "../models/userModel";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 const authCtrl = {
   register: async (req, res) => {
@@ -138,4 +138,4 @@ const createRefreshToken = (payload) => {
     expiresIn: "30d",
   });
 };
-module.exports = authCtrl;
+export default authCtrl;
