@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === "development") {
 
 app.use(
   cors({
-    origin: "https://belxi.ru",
+    origin: "http://localhost:3000",
     credentials: true,
   })
 );

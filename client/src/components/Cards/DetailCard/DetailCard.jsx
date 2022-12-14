@@ -3,29 +3,18 @@ import React from "react";
 import PostCard from "../PostCard/PostCard";
 import "./detail-card.scss";
 
-const DetailCard = () => {
+const DetailCard = ({ post }) => {
   return (
     <div className="detail-card">
       <FavoriteBtn />
 
-      <img
-        src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-        alt=""
-      />
-      <PostCard
-        post={{
-          _id: Math.random() * 10,
-          title: "npm audit: Broken by Design",
-          time: "July 7, 2021",
-          content:
-            "Security is important. Nobody wants to be the person advocating for less security. So nobody wants to say it. But somebody has to say it.The way npm audit works is broken. Its rollout as a default after every npm install was rushed, inconsiderate, and inadequate for the front-end tooling.",
-        }}
-      />
+      <img src={post?.images[0]?.url} alt="" />
+      <PostCard post={post} />
 
       <div className="detail-card-footer">
         <div className="detail-card-footer-user">
-          <Avatar />
-          <span className="fs-14">Ahmed</span>
+          <Avatar src={post.user.avatar} />
+          <span className="fs-14">{post.user.username}</span>
         </div>
 
         <div className="detail-card-footer-icons">

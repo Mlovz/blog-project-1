@@ -3,7 +3,17 @@ import jwt from "jsonwebtoken";
 
 const auth = async (req, res, next) => {
   try {
-    const token = req.header("Authorization");
+    let token;
+
+    if (
+      req.headers.authorization &&
+      req.headers.authorization.startsWith("Bearer")
+    ) {
+      token = req.headers.authorization.split(" ")[1];
+    } else if (req.cookies.jwt) {
+      token = req.cookies.jwt;
+    }
+
     if (!token) return res.status(404).json({ msg: "Ошибка Авторизации" });
 
     const decoded = jwt.verify(token, `${process.env.ACCESS_TOKEN_SECRET}`);

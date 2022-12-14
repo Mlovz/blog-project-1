@@ -21,7 +21,7 @@ const PostCard = ({ post, sctollTop }) => {
   return (
     <div className="post-card" onClick={onCLick}>
       <Heading>{post.title}</Heading>
-      <span className="fs-12">{post.time}</span>
+      <span className="fs-12">{post.createdAt}</span>
       <p className="fs-16">{post.content}</p>
 
       <div className="post-card-dots" onClick={(e) => e.stopPropagation()}>

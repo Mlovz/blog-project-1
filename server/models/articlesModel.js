@@ -5,19 +5,26 @@ const aricleModel = new mongoose.Schema({
   title: {
     type: String,
     required: true,
-    minLength: 10,
-    maxLength: 100,
+    // minLength: 10,
+    // maxLength: 100,
   },
   content: {
     type: String,
     require: true,
-    minLength: 500,
+    // minLength: 500,
   },
-  thumbnail: {
+  images: {
+    type: Array,
+    default: [],
+  },
+  category: {
     type: String,
-    require: true,
+    default: "",
   },
-  category: { type: mongoose.Types.ObjectId, ref: "category" },
+  createdAt: {
+    type: Date,
+    default: Date.now(),
+  },
 });
 
 export default mongoose.model("article", aricleModel);

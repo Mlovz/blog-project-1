@@ -1,14 +1,20 @@
 import { Button, Form, Heading, Input, Select } from "components";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { articleAdd } from "redux/actions/articleAction";
 import "./add-post.scss";
 
 const AddPost = () => {
   const [select, setSelect] = useState("");
-  const [file, setFile] = useState();
+  const [files, setFiles] = useState([]);
   const [data, setData] = useState({
     title: "",
     content: "",
   });
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,11 +23,17 @@ const AddPost = () => {
   };
 
   const handleFileChange = (e) => {
-    const file = e.target.files[0];
+    const newfiles = [...e.target.files];
 
-    if (file) {
-      setFile(file);
+    if (newfiles.length) {
+      setFiles([...files, ...newfiles]);
     }
+  };
+
+  const handleRemoveImage = (idx) => {
+    const newImages = [...files];
+    newImages.splice(idx, 1);
+    setFiles(newImages);
   };
 
   const onSubmit = (e) => {
@@ -30,8 +42,12 @@ const AddPost = () => {
       title: data.title,
       content: data.content,
       category: select,
-      file,
     };
+    const { title, content, category } = newData;
+
+    if ((!title && !content && !category) || files.length === 0) return;
+
+    dispatch(articleAdd(newData, files, navigate));
   };
 
   return (
@@ -52,6 +68,18 @@ const AddPost = () => {
             </div>
           </label>
         </div>
+
+        {files && (
+          <div className="file_images">
+            {files.map((file, index) => (
+              <img
+                src={URL.createObjectURL(file)}
+                alt=""
+                onClick={() => handleRemoveImage(index)}
+              />
+            ))}
+          </div>
+        )}
 
         <div className="form-group">
           <Input
