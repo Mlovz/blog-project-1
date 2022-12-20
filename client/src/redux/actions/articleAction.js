@@ -56,3 +56,34 @@ export const getAricle = (id) => async (dispatch) => {
     dispatch({ type: ALERT_TYPES.LOADING, payload: { loading: false } });
   }
 };
+
+export const likeArticle =
+  ({ auth, post }) =>
+  async (dispatch) => {
+    try {
+      const newPost = { ...post, likes: [...post.likes, auth.user._id] };
+
+      dispatch({ type: ARTICLE_TYPES.UPDATE_POST, payload: newPost });
+
+      const res = await api.patch(`/api/article/${post._id}/like`);
+
+      console.log(res);
+    } catch (err) {}
+  };
+
+export const unlikeArticle =
+  ({ auth, post }) =>
+  async (dispatch) => {
+    try {
+      const newPost = {
+        ...post,
+        likes: post.likes.filter((like) => like !== auth.user._id),
+      };
+
+      dispatch({ type: ARTICLE_TYPES.UPDATE_POST, payload: newPost });
+
+      const res = await api.patch(`/api/article/${post._id}/unlike`);
+
+      console.log(res);
+    } catch (err) {}
+  };

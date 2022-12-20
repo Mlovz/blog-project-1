@@ -23,6 +23,12 @@ const articleReducer = (state = intitalState, action) => {
         ...state,
         blog: action.payload,
       };
+
+    case ARTICLE_TYPES.UPDATE_POST:
+      return {
+        ...state,
+        blog: action.payload,
+      };
     default:
       return state;
   }

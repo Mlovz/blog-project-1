@@ -6,7 +6,7 @@ import "./detail-card.scss";
 const DetailCard = ({ post }) => {
   return (
     <div className="detail-card">
-      <FavoriteBtn />
+      <FavoriteBtn post={post} />
 
       <img src={post?.images[0]?.url} alt="" />
       <PostCard post={post} />
@@ -34,7 +34,7 @@ const DetailCard = ({ post }) => {
                 stroke-linejoin="round"
               />
             </svg>
-            <span className="fs-12">10</span>
+            <span className="fs-12">{post.likes.length}</span>
           </div>
           <div>
             <svg

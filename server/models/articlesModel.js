@@ -13,6 +13,7 @@ const aricleModel = new mongoose.Schema({
     require: true,
     // minLength: 500,
   },
+  likes: [{ type: mongoose.Types.ObjectId, ref: "user" }],
   images: {
     type: Array,
     default: [],

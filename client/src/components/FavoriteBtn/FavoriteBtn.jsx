@@ -1,16 +1,29 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { likeArticle, unlikeArticle } from "redux/actions/articleAction";
 import "./favorite-btn.scss";
 
-const FavoriteBtn = () => {
-  const [isLike, setIsLike] = useState(true);
+const FavoriteBtn = ({ post }) => {
+  const [isLike, setIsLike] = useState(false);
+  const dispatch = useDispatch();
+  const auth = useSelector((state) => state.auth);
 
   const like = () => {
     if (isLike) {
-      setIsLike(false);
+      dispatch(unlikeArticle({ auth, post }));
     } else {
-      setIsLike(true);
+      dispatch(likeArticle({ auth, post }));
     }
   };
+
+  useEffect(() => {
+    if (post.likes.find((item) => item === auth.user._id)) {
+      setIsLike(true);
+    } else {
+      setIsLike(false);
+    }
+  }, [post.likes, post._id, auth.user._id]);
 
   return (
     <button className={`favorite-btn ${isLike ? "active" : ""}`} onClick={like}>

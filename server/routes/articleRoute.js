@@ -5,6 +5,8 @@ import auth from "../middleware/auth";
 const router = express.Router();
 
 router.post("/article", auth, articleCtrl.create);
+router.patch("/article/:id/like", auth, articleCtrl.likePost);
+router.patch("/article/:id/unlike", auth, articleCtrl.unLikePost);
 
 router.get("/home/articles", articleCtrl.getArticles);
 
